@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(222, 47%, 5%);
+  --foreground: hsl(240, 9%, 93%);
+  --card: hsl(222, 47%, 8%);
+  --card-foreground: hsl(240, 9%, 93%);
+  --popover: hsl(222, 47%, 8%);
+  --popover-foreground: hsl(240, 9%, 93%);
+  --primary: hsl(239, 84%, 67%);
+  --primary-foreground: hsl(240, 9%, 93%);
+  --secondary: hsl(262, 83%, 58%);
+  --secondary-foreground: hsl(240, 9%, 93%);
+  --muted: hsl(217, 19%, 13%);
+  --muted-foreground: hsl(215, 13%, 65%);
+  --accent: hsl(197, 71%, 73%);
+  --accent-foreground: hsl(222, 47%, 5%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(240, 9%, 93%);
+  --border: hsl(217, 19%, 13%);
+  --input: hsl(217, 19%, 13%);
+  --ring: hsl(239, 84%, 67%);
+  --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
+  --chart-2: hsl(159.7826, 100%, 36.0784%);
+  --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
+  --chart-4: hsl(147.1429, 78.5047%, 41.9608%);
+  --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
+  --sidebar: hsl(222, 47%, 8%);
+  --sidebar-foreground: hsl(240, 9%, 93%);
+  --sidebar-primary: hsl(239, 84%, 67%);
+  --sidebar-primary-foreground: hsl(240, 9%, 93%);
+  --sidebar-accent: hsl(197, 71%, 73%);
+  --sidebar-accent-foreground: hsl(222, 47%, 5%);
+  --sidebar-border: hsl(217, 19%, 13%);
+  --sidebar-ring: hsl(239, 84%, 67%);
+  --radius: 0.75rem;
+  
+  /* Custom UnlockHQ colors */
+  --navy-deep: hsl(222, 84%, 3%);
+  --indigo-primary: hsl(239, 84%, 67%);
+  --purple-secondary: hsl(262, 83%, 58%);
+  --cyan-accent: hsl(197, 71%, 73%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, hsl(222, 47%, 5%) 0%, hsl(222, 84%, 3%) 100%);
+    color: hsl(240, 9%, 93%);
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    background: linear-gradient(135deg, 
+      hsl(239, 84%, 67%, 0.1) 0%, 
+      hsl(262, 83%, 58%, 0.1) 50%, 
+      hsl(197, 71%, 73%, 0.1) 100%);
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(217, 19%, 13%, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(217, 19%, 13%, 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .glow-button {
+    background: linear-gradient(135deg, hsl(239, 84%, 67%), hsl(262, 83%, 58%));
+    box-shadow: 0 0 20px hsl(239, 84%, 67%, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 30px hsl(239, 84%, 67%, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .service-card {
+    background: linear-gradient(135deg, 
+      hsl(222, 47%, 8%) 0%, 
+      hsl(217, 19%, 13%) 100%);
+    border: 1px solid hsl(217, 19%, 13%);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    border-color: hsl(239, 84%, 67%, 0.5);
+    box-shadow: 0 20px 40px hsl(222, 47%, 5%, 0.5);
+  }
+
+  .nav-link {
+    position: relative;
+    color: hsl(215, 13%, 65%);
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: hsl(240, 9%, 93%);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background: linear-gradient(135deg, hsl(239, 84%, 67%), hsl(262, 83%, 58%));
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .form-input {
+    background: hsl(217, 19%, 13%);
+    border: 1px solid hsl(217, 19%, 13%);
+    color: hsl(240, 9%, 93%);
+    transition: all 0.3s ease;
+  }
+
+  .form-input:focus {
+    border-color: hsl(239, 84%, 67%);
+    box-shadow: 0 0 0 3px hsl(239, 84%, 67%, 0.1);
+    outline: none;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(239, 84%, 67%), hsl(262, 83%, 58%), hsl(197, 71%, 73%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px); 
+    opacity: 0.3; 
+  }
+  50% { 
+    transform: translateY(-20px) translateX(10px); 
+    opacity: 0.8; 
+  }
+}
