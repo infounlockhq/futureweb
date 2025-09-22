@@ -11,7 +11,6 @@ import {
   Headphones,
   Mail,
   Instagram,
-  Twitter,
   Linkedin,
 } from "lucide-react";
 
@@ -24,6 +23,18 @@ import { apiRequest } from "@/lib/queryClient";
 import { ParticleSystem } from "@/components/particles";
 import { ServiceCard } from "@/components/service-card";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
+import unlockHQLogo from "@/assets/unlockhq-logo.jpg";
+
+// X (Twitter) Icon Component
+const XIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
 
 const services = [
   {
@@ -112,10 +123,12 @@ export default function Home() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">U</span>
-              </div>
+            <div className="flex items-center space-x-3">
+              <img 
+                src={unlockHQLogo} 
+                alt="UnlockHQ Logo" 
+                className="w-10 h-10 rounded-lg object-contain"
+              />
               <span className="text-xl font-bold text-foreground">UnlockHQ</span>
             </div>
 
@@ -241,6 +254,142 @@ export default function Home() {
                   index={index}
                 />
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats & Expertise Section */}
+        <section className="py-20 relative">
+          <div className="container mx-auto px-6">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                {/* Left: Expertise Content */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="space-y-8"
+                >
+                  <div>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                      Expertise in <span className="gradient-text">AI Automation</span>
+                    </h2>
+                    <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                      At UnlockHQ, we specialize in creating intelligent AI automation systems that transform how businesses operate. Our agent-style automations work around the clock to reduce costs, increase efficiency, and drive growth through smart technology solutions.
+                    </p>
+                  </div>
+
+                  <div className="space-y-6">
+                    <motion.div 
+                      className="flex items-start space-x-4"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Clock className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground mb-2">Lightning Fast</h3>
+                        <p className="text-muted-foreground">AI agents respond instantly, ensuring no opportunity is missed.</p>
+                      </div>
+                    </motion.div>
+
+                    <motion.div 
+                      className="flex items-start space-x-4"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                        <BarChart3 className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground mb-2">Precision Targeting</h3>
+                        <p className="text-muted-foreground">Advanced algorithms identify and engage your ideal customers.</p>
+                      </div>
+                    </motion.div>
+
+                    <motion.div 
+                      className="flex items-start space-x-4"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                        <BarChart3 className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground mb-2">Scalable Growth</h3>
+                        <p className="text-muted-foreground">Automatically scale your operations without increasing overhead.</p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Right: Stats Grid */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-2 gap-6"
+                >
+                  {/* 24/7 Card */}
+                  <motion.div 
+                    className="col-span-2 bg-gradient-to-br from-card via-card to-muted/20 border border-border rounded-2xl p-8 text-center"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="text-6xl font-bold gradient-text mb-2">24/7</div>
+                    <div className="text-muted-foreground">Always Active</div>
+                  </motion.div>
+
+                  {/* Efficiency Card */}
+                  <motion.div 
+                    className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-2xl p-6 text-center"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="text-4xl font-bold text-primary mb-2">98%</div>
+                    <div className="text-sm text-muted-foreground">Efficiency</div>
+                  </motion.div>
+
+                  {/* ROI Card */}
+                  <motion.div 
+                    className="bg-gradient-to-br from-secondary/10 to-accent/10 border border-secondary/20 rounded-2xl p-6 text-center"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="text-4xl font-bold text-secondary mb-2">5x</div>
+                    <div className="text-sm text-muted-foreground">ROI</div>
+                  </motion.div>
+
+                  {/* Cost Reduction Card */}
+                  <motion.div 
+                    className="bg-gradient-to-br from-accent/10 to-primary/10 border border-accent/20 rounded-2xl p-6 text-center"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="text-4xl font-bold text-accent mb-2">50%</div>
+                    <div className="text-sm text-muted-foreground">Cost Reduction</div>
+                  </motion.div>
+
+                  {/* Scalability Card */}
+                  <motion.div 
+                    className="bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 rounded-2xl p-6 text-center"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="text-4xl font-bold gradient-text mb-2">∞</div>
+                    <div className="text-sm text-muted-foreground">Scalability</div>
+                  </motion.div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
@@ -498,13 +647,13 @@ export default function Home() {
                       </a>
                       
                       <a 
-                        href="https://twitter.com/unlockhq_" 
+                        href="https://x.com/unlockhq_" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors"
-                        data-testid="link-twitter"
+                        data-testid="link-x"
                       >
-                        <Twitter className="w-6 h-6 text-muted-foreground hover:text-primary" />
+                        <XIcon className="w-6 h-6 text-muted-foreground hover:text-primary" />
                       </a>
                       
                       <a 
