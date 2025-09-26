@@ -190,7 +190,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 data-testid="text-hero-heading"
               >
-                Unlock the Power of AI Automation for Your Business
+                Let's Automate Your Business And Grow with AI
               </motion.h1>
               
               <motion.p 
@@ -214,7 +214,7 @@ export default function Home() {
                   className="glow-button px-12 py-4 rounded-lg text-lg font-semibold text-primary-foreground hover:bg-transparent"
                   data-testid="button-contact-us"
                 >
-                  Contact Us
+                  Get Started Today
                 </Button>
               </motion.div>
             </div>
