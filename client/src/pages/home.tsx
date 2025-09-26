@@ -200,7 +200,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 data-testid="text-hero-subtitle"
               >
-                Save time, reduce costs, and boost revenue with intelligent <span style={{color:'#FF6F61'}}>AI-powered automation</span>.
+                Save time, reduce costs, and boost revenue with intelligent <span style={{color:'#3b82f6'}}>AI-powered automation</span>.
               </motion.p>
 
               <motion.div
@@ -448,7 +448,7 @@ export default function Home() {
                   data-testid="text-about-content"
                 >
                   <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
-                    Why Choose UnlockHQ?
+                    Why Choose <span className="gradient-text">UnlockHQ</span>?
                   </h2>
                   <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
                     At UnlockHQ, we create easy AI systems that help your business work smarter, not harder. Our AI runs all day and night to take care of the boring tasks so you can focus on customers and ideas.
