@@ -184,7 +184,7 @@ export default function Home() {
           <div className="container mx-auto px-6 text-center z-10">
             <div className="max-w-4xl mx-auto">
               <motion.h1 
-                className="text-5xl md:text-7xl font-bold mb-6 gradient-text leading-tight animate-shimmer"
+                className="text-5xl md:text-7xl font-bold mb-6 gradient-text leading-tight"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
