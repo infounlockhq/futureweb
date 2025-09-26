@@ -184,7 +184,7 @@ export default function Home() {
           <div className="container mx-auto px-6 text-center z-10">
             <div className="max-w-4xl mx-auto">
               <motion.h1 
-                className="text-5xl md:text-7xl font-bold mb-6 gradient-text leading-tight"
+                className="text-5xl md:text-7xl font-bold mb-6 gradient-text leading-tight animate-shimmer"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -207,6 +207,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex flex-col sm:flex-row gap-4 items-center justify-center"
               >
                 <Button
                   onClick={() => scrollTo("contact")}
@@ -214,6 +215,14 @@ export default function Home() {
                   data-testid="button-contact-us"
                 >
                   Contact Us
+                </Button>
+                
+                <Button
+                  onClick={() => window.open('https://calendly.com/unlockhq', '_blank')}
+                  className="px-12 py-4 rounded-lg text-lg font-semibold border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                  data-testid="button-book-call"
+                >
+                  📅 Book a Call
                 </Button>
               </motion.div>
             </div>
@@ -341,12 +350,12 @@ export default function Home() {
                 >
                   {/* 24/7 Card */}
                   <motion.div 
-                    className="col-span-2 bg-gradient-to-br from-card via-card to-muted/20 border border-border rounded-2xl p-8 text-center"
+                    className="col-span-2 bg-gradient-to-br from-card via-card to-muted/20 border border-border rounded-2xl p-8 text-center animate-pulse-glow"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="text-6xl font-bold gradient-text mb-2">24/7</div>
-                    <div className="text-muted-foreground">Always Active</div>
+                    <div className="text-6xl font-bold gradient-text mb-2 animate-scale-pulse">24/7</div>
+                    <div className="text-muted-foreground animate-fade-in-up">Always Active</div>
                   </motion.div>
 
                   {/* Efficiency Card */}
@@ -355,8 +364,8 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="text-4xl font-bold text-primary mb-2">98%</div>
-                    <div className="text-sm text-muted-foreground">Efficiency</div>
+                    <div className="text-4xl font-bold text-primary mb-2 animate-bounce-in">98%</div>
+                    <div className="text-sm text-muted-foreground animate-slide-up">Efficiency</div>
                   </motion.div>
 
                   {/* ROI Card */}
@@ -365,8 +374,8 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="text-4xl font-bold text-secondary mb-2">5x</div>
-                    <div className="text-sm text-muted-foreground">ROI</div>
+                    <div className="text-4xl font-bold text-secondary mb-2 animate-bounce-in" style={{ animationDelay: '0.2s' }}>5x</div>
+                    <div className="text-sm text-muted-foreground animate-slide-up" style={{ animationDelay: '0.2s' }}>ROI</div>
                   </motion.div>
 
                   {/* Cost Reduction Card */}
@@ -375,8 +384,8 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="text-4xl font-bold text-accent mb-2">50%</div>
-                    <div className="text-sm text-muted-foreground">Cost Reduction</div>
+                    <div className="text-4xl font-bold text-accent mb-2 animate-bounce-in" style={{ animationDelay: '0.4s' }}>50%</div>
+                    <div className="text-sm text-muted-foreground animate-slide-up" style={{ animationDelay: '0.4s' }}>Cost Reduction</div>
                   </motion.div>
 
                   {/* Scalability Card */}
@@ -385,8 +394,8 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="text-4xl font-bold gradient-text mb-2">∞</div>
-                    <div className="text-sm text-muted-foreground">Scalability</div>
+                    <div className="text-4xl font-bold gradient-text mb-2 animate-bounce-in" style={{ animationDelay: '0.6s' }}>∞</div>
+                    <div className="text-sm text-muted-foreground animate-slide-up" style={{ animationDelay: '0.6s' }}>Scalability</div>
                   </motion.div>
                 </motion.div>
               </div>
@@ -630,6 +639,18 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Book a Call Section */}
+                  <div className="mb-8">
+                    <h4 className="text-lg font-semibold text-foreground mb-4">Prefer a Quick Call?</h4>
+                    <Button
+                      onClick={() => window.open('https://calendly.com/unlockhq', '_blank')}
+                      className="glow-button w-full py-3 rounded-lg font-semibold text-primary-foreground hover:bg-transparent"
+                      data-testid="button-schedule-call"
+                    >
+                      📅 Schedule a Free Consultation
+                    </Button>
                   </div>
 
                   {/* Social Media Links */}

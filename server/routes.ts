@@ -3,6 +3,8 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { z } from "zod";
+import { sendContactNotification } from "./email";
+import { addToGoogleSheets } from "./sheets";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -10,6 +12,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const contactData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(contactData);
+      
+      // Send email notification (async, don't wait)
+      sendContactNotification(contactData).catch(error => {
+        console.error("Email notification failed:", error);
+      });
+
+      // Add to Google Sheets (async, don't wait) 
+      addToGoogleSheets(contact).catch(error => {
+        console.error("Google Sheets integration failed:", error);
+      });
       
       res.json({ 
         success: true, 
