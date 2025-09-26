@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -73,6 +74,7 @@ export default function Home() {
   const scrollTo = useScrollTo();
   const scrollY = useScrollPosition();
   const { toast } = useToast();
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const form = useForm<InsertContact>({
     resolver: zodResolver(insertContactSchema),
@@ -90,10 +92,15 @@ export default function Home() {
       return response.json();
     },
     onSuccess: (data) => {
-      toast({
-        title: "Message sent successfully!",
-        description: data.message,
-      });
+      // Close modal first to prevent UI conflicts
+      setIsContactModalOpen(false);
+      // Show toast after a brief delay to ensure it's visible
+      setTimeout(() => {
+        toast({
+          title: "Message sent successfully!",
+          description: data.message,
+        });
+      }, 100);
       form.reset();
     },
     onError: (error: any) => {
@@ -156,7 +163,7 @@ export default function Home() {
                 About
               </button>
               <button 
-                onClick={() => scrollTo("contact")} 
+                onClick={() => setIsContactModalOpen(true)} 
                 className="nav-link"
                 data-testid="link-contact"
               >
@@ -166,7 +173,7 @@ export default function Home() {
 
             {/* CTA Button */}
             <Button
-              onClick={() => scrollTo("contact")}
+              onClick={() => setIsContactModalOpen(true)}
               className="glow-button px-6 py-2 rounded-lg font-semibold text-primary-foreground hover:bg-transparent"
               data-testid="button-get-started"
             >
@@ -210,7 +217,7 @@ export default function Home() {
                 className="flex justify-center"
               >
                 <Button
-                  onClick={() => scrollTo("contact")}
+                  onClick={() => setIsContactModalOpen(true)}
                   className="glow-button px-12 py-4 rounded-lg text-lg font-semibold text-primary-foreground hover:bg-transparent"
                   data-testid="button-contact-us"
                 >
@@ -685,13 +692,113 @@ export default function Home() {
               <button onClick={() => scrollTo("about")} className="nav-link" data-testid="link-footer-about">
                 About
               </button>
-              <button onClick={() => scrollTo("contact")} className="nav-link" data-testid="link-footer-contact">
+              <button onClick={() => setIsContactModalOpen(true)} className="nav-link" data-testid="link-footer-contact">
                 Contact
               </button>
             </nav>
           </div>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
+        <DialogContent className="sm:max-w-[425px] bg-card border-border">
+          <DialogHeader>
+            <DialogTitle className="text-foreground">Get Started Today</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Fill out the form below and we'll get in touch with you to discuss how AI automation can transform your business.
+            </DialogDescription>
+          </DialogHeader>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-foreground">Name</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Your full name" 
+                        className="form-input"
+                        data-testid="input-modal-name"
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-foreground">Email</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="your.email@company.com" 
+                        className="form-input"
+                        data-testid="input-modal-email"
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-foreground">Phone Number</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="+1 (555) 123-4567" 
+                        className="form-input"
+                        data-testid="input-modal-phone"
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="company"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-foreground">Company Name</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Your company" 
+                        className="form-input"
+                        data-testid="input-modal-company"
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <Button
+                type="submit"
+                className="glow-button w-full py-3 rounded-lg font-semibold text-primary-foreground hover:bg-transparent"
+                disabled={contactMutation.isPending}
+                data-testid="button-modal-submit"
+              >
+                {contactMutation.isPending ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+          </Form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
