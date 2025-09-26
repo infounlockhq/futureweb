@@ -218,11 +218,11 @@ export default function Home() {
                 </Button>
                 
                 <Button
-                  onClick={() => window.open('https://calendly.com/unlockhq', '_blank')}
+                  onClick={() => scrollTo("contact")}
                   className="px-12 py-4 rounded-lg text-lg font-semibold border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-white transition-all duration-300"
                   data-testid="button-book-call"
                 >
-                  📅 Book a Call
+                  📅 Schedule a Call
                 </Button>
               </motion.div>
             </div>
@@ -626,7 +626,7 @@ export default function Home() {
                   <div className="mb-8">
                     <h4 className="text-lg font-semibold text-foreground mb-4">Prefer a Quick Call?</h4>
                     <Button
-                      onClick={() => window.open('https://calendly.com/unlockhq', '_blank')}
+                      onClick={() => scrollTo("contact")}
                       className="glow-button w-full py-3 rounded-lg font-semibold text-primary-foreground hover:bg-transparent"
                       data-testid="button-schedule-call"
                     >
