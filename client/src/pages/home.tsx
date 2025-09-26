@@ -207,7 +207,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 items-center justify-center"
+                className="flex justify-center"
               >
                 <Button
                   onClick={() => scrollTo("contact")}
@@ -215,14 +215,6 @@ export default function Home() {
                   data-testid="button-contact-us"
                 >
                   Contact Us
-                </Button>
-                
-                <Button
-                  onClick={() => scrollTo("contact")}
-                  className="px-12 py-4 rounded-lg text-lg font-semibold border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-white transition-all duration-300"
-                  data-testid="button-book-call"
-                >
-                  📅 Schedule a Call
                 </Button>
               </motion.div>
             </div>
@@ -620,18 +612,6 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Book a Call Section */}
-                  <div className="mb-8">
-                    <h4 className="text-lg font-semibold text-foreground mb-4">Prefer a Quick Call?</h4>
-                    <Button
-                      onClick={() => scrollTo("contact")}
-                      className="glow-button w-full py-3 rounded-lg font-semibold text-primary-foreground hover:bg-transparent"
-                      data-testid="button-schedule-call"
-                    >
-                      📅 Schedule a Free Consultation
-                    </Button>
                   </div>
 
                   {/* Social Media Links */}
