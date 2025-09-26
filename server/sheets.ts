@@ -18,8 +18,19 @@ interface GoogleSheetsCredentials {
   client_x509_cert_url: string;
 }
 
+// Extract sheet ID from URL if needed
+function extractSheetId(sheetIdOrUrl: string): string {
+  // If it's a full URL, extract the sheet ID
+  const match = sheetIdOrUrl.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+  if (match) {
+    return match[1];
+  }
+  // Otherwise assume it's already a sheet ID
+  return sheetIdOrUrl;
+}
+
 // You'll need to set your Google Sheets ID and credentials
-const GOOGLE_SHEETS_ID = process.env.GOOGLE_SHEETS_ID;
+const GOOGLE_SHEETS_ID = process.env.GOOGLE_SHEETS_ID ? extractSheetId(process.env.GOOGLE_SHEETS_ID) : undefined;
 const GOOGLE_SERVICE_ACCOUNT_CREDENTIALS = process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS;
 
 export async function addToGoogleSheets(contact: Contact): Promise<boolean> {
