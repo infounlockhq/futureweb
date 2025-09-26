@@ -406,7 +406,7 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Save hours per week through this automation system.
+                  Save hours per week through this <span className="blue-purple-gradient">automation system</span>.
                 </h3>
               </motion.div>
               
@@ -417,7 +417,7 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Cut your expenses and boost profits.
+                  Cut your expenses and <span className="blue-purple-gradient">boost profits</span>.
                 </h3>
               </motion.div>
               
@@ -427,8 +427,8 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-3xl md:text-4xl font-bold gradient-text">
-                  24/7 Agent-like AI capabilities driving your business.
+                <h3 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Get a friendly <span className="blue-purple-gradient">AI assistant</span> working for you <span className="blue-purple-gradient">24/7</span>.
                 </h3>
               </motion.div>
             </div>
@@ -448,14 +448,25 @@ export default function Home() {
                   data-testid="text-about-content"
                 >
                   <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
-                    Transforming Business with AI Innovation
+                    Why Choose UnlockHQ?
                   </h2>
                   <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                    At UnlockHQ, we specialize in creating intelligent automation solutions that revolutionize how businesses operate. Our mission is to empower organizations with cutting-edge AI technology that reduces costs, increases efficiency, and drives sustainable growth.
+                    At UnlockHQ, we create easy AI systems that help your business work smarter, not harder. Our AI runs all day and night to take care of the boring tasks so you can focus on customers and ideas.
                   </p>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    Through our expertise in AI automation and agent-style workflows, we help businesses unlock their full potential by implementing smart technology solutions that work around the clock.
-                  </p>
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">Fast and Reliable:</h3>
+                      <p className="text-muted-foreground">Our AI works quickly, so you never miss a lead or opportunity.</p>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">Smart Targeting:</h3>
+                      <p className="text-muted-foreground">We help you find the right people to grow your sales.</p>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">Always On:</h3>
+                      <p className="text-muted-foreground">Our AI never sleeps, so your business never stops.</p>
+                    </div>
+                  </div>
                 </motion.div>
                 
               </div>
@@ -476,7 +487,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   data-testid="text-contact-heading"
                 >
-                  Let's Transform Your Business
+                  Ready to Automate your Growth
                 </motion.h2>
                 <motion.p 
                   className="text-xl text-muted-foreground"
