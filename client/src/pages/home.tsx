@@ -190,7 +190,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 data-testid="text-hero-heading"
               >
-                Unlock the Power of AI Automation
+                Unlock the Power of AI Automation for Your Business
               </motion.h1>
               
               <motion.p 
@@ -200,7 +200,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 data-testid="text-hero-subtitle"
               >
-                Save hours per week through this automation system, cut your expenses, and boost profits with 24/7 agent-like AI capabilities.
+                Save time, reduce costs, and boost revenue with intelligent <span style={{color:'#FF6F61'}}>AI-powered automation</span>.
               </motion.p>
 
               <motion.div
@@ -466,25 +466,6 @@ export default function Home() {
                   </p>
                 </motion.div>
                 
-                <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="relative">
-                    <div className="w-full h-96 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 rounded-2xl flex items-center justify-center">
-                      <div className="grid grid-cols-3 gap-4">
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg animate-pulse"></div>
-                        <div className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-lg animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                        <div className="w-16 h-16 bg-gradient-to-br from-accent to-primary rounded-lg animate-pulse" style={{animationDelay: '1s'}}></div>
-                        <div className="w-16 h-16 bg-gradient-to-br from-accent to-secondary rounded-lg animate-pulse" style={{animationDelay: '1.5s'}}></div>
-                        <div className="w-20 h-20 bg-gradient-to-br from-primary via-secondary to-accent rounded-xl animate-pulse" style={{animationDelay: '2s'}}></div>
-                        <div className="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-lg animate-pulse" style={{animationDelay: '2.5s'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
               </div>
             </div>
           </div>
