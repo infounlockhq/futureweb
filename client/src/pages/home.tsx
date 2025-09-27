@@ -21,7 +21,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollTo, useScrollPosition } from "@/hooks/use-scroll";
 import { apiRequest } from "@/lib/queryClient";
-import { ParticleSystem } from "@/components/particles";
+import { NeuralNetwork3D } from "@/components/neural-network-3d";
 import { ServiceCard } from "@/components/service-card";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
 import unlockHQLogo from "@/assets/unlockhq-logo.jpg";
@@ -186,7 +186,7 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section id="hero" className="relative min-h-screen flex items-center justify-center gradient-bg overflow-hidden">
-          <ParticleSystem />
+          <NeuralNetwork3D />
           
           <div className="container mx-auto px-6 text-center z-10">
             <div className="max-w-4xl mx-auto">
