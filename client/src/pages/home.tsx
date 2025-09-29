@@ -630,9 +630,13 @@ export default function Home() {
                         </div>
                         <div>
                           <p className="text-sm text-muted-foreground">Email</p>
-                          <p className="text-foreground font-medium" data-testid="text-email">
+                          <a 
+                            href="mailto:info.unlockhq@gmail.com"
+                            className="text-foreground font-medium hover:text-cyan-400 transition-colors duration-300"
+                            data-testid="text-email"
+                          >
                             info.unlockhq@gmail.com
-                          </p>
+                          </a>
                         </div>
                       </div>
 
