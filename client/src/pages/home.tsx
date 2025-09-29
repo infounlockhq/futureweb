@@ -635,6 +635,22 @@ export default function Home() {
                           </p>
                         </div>
                       </div>
+
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                          <Phone className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-muted-foreground">Phone</p>
+                          <a 
+                            href="tel:+918860881127"
+                            className="text-foreground font-medium hover:text-cyan-400 transition-colors duration-300"
+                            data-testid="text-contact-phone"
+                          >
+                            +91 88 60 88 11 27
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -816,24 +832,6 @@ export default function Home() {
         <MessageCircle className="w-6 h-6" />
       </button>
 
-      {/* Footer with Contact Number */}
-      <footer className="bg-gray-900/50 backdrop-blur-sm border-t border-gray-800/50 py-8">
-        <div className="container mx-auto px-6 text-center">
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground">Contact Us</h3>
-            <a 
-              href="tel:+918860881127"
-              className="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-300 block"
-              data-testid="text-footer-phone"
-            >
-              📞 +91 88 60 88 11 27
-            </a>
-            <p className="text-muted-foreground text-sm">
-              Ready to automate your business? Call us or click WhatsApp!
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
