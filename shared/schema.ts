@@ -23,10 +23,7 @@ export const insertUserSchema = createInsertSchema(users).pick({
   password: true,
 });
 
-export const insertContactSchema = createInsertSchema(contacts).omit({
-  id: true,
-  createdAt: true,
-}).extend({
+export const insertContactSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
