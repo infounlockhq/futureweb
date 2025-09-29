@@ -1,21 +1,24 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
   "functions": {
-    "api/*.ts": {
+    "api/*.js": {
       "memory": 1024,
       "maxDuration": 10
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "source": "/api/contact",
+      "destination": "/api/contact.js"
     },
     {
-      "src": "/[^.]*",
-      "dest": "/index.html"
+      "source": "/api/contacts",
+      "destination": "/api/contacts.js"
+    },
+    {
+      "source": "/((?!api).*)",
+      "destination": "/index.html"
     }
   ]
 }
