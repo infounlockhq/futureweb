@@ -40,7 +40,7 @@ const XIcon = ({ className }: { className?: string }) => (
 
 // WhatsApp Function
 const openWhatsApp = () => {
-  window.open(`https://wa.me/8860881127`, '_blank');
+  window.open(`https://wa.me/918860881127`, '_blank');
 };
 
 const services = [
@@ -220,7 +220,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                className="flex justify-center"
               >
                 <Button
                   onClick={() => setIsContactModalOpen(true)}
@@ -229,32 +229,6 @@ export default function Home() {
                 >
                   Get Started Today
                 </Button>
-                
-                <Button
-                  onClick={openWhatsApp}
-                  variant="outline"
-                  className="px-8 py-4 rounded-lg text-lg font-semibold border-green-500 text-green-400 hover:bg-green-500/10 hover:text-green-300 transition-all duration-300"
-                  data-testid="button-whatsapp"
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp
-                </Button>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="mt-8 text-center"
-              >
-                <p className="text-muted-foreground mb-2">Contact us directly:</p>
-                <a 
-                  href="tel:8860881127"
-                  className="text-xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
-                  data-testid="text-phone-number"
-                >
-                  📞 8860881127
-                </a>
               </motion.div>
             </div>
           </div>
@@ -831,6 +805,35 @@ export default function Home() {
           </Form>
         </DialogContent>
       </Dialog>
+
+      {/* Fixed WhatsApp Button */}
+      <button
+        onClick={openWhatsApp}
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
+        data-testid="button-whatsapp-fixed"
+        aria-label="Contact us on WhatsApp"
+      >
+        <MessageCircle className="w-6 h-6" />
+      </button>
+
+      {/* Footer with Contact Number */}
+      <footer className="bg-gray-900/50 backdrop-blur-sm border-t border-gray-800/50 py-8">
+        <div className="container mx-auto px-6 text-center">
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">Contact Us</h3>
+            <a 
+              href="tel:+918860881127"
+              className="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-300 block"
+              data-testid="text-footer-phone"
+            >
+              📞 +91 88 60 88 11 27
+            </a>
+            <p className="text-muted-foreground text-sm">
+              Ready to automate your business? Call us or click WhatsApp!
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
