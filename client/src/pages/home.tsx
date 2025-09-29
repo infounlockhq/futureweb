@@ -12,6 +12,7 @@ import {
   Mail,
   Instagram,
   Linkedin,
+  MessageCircle,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,11 @@ const XIcon = ({ className }: { className?: string }) => (
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
   </svg>
 );
+
+// WhatsApp Function
+const openWhatsApp = () => {
+  window.open(`https://wa.me/8860881127`, '_blank');
+};
 
 const services = [
   {
@@ -214,7 +220,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex justify-center"
+                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               >
                 <Button
                   onClick={() => setIsContactModalOpen(true)}
@@ -223,6 +229,32 @@ export default function Home() {
                 >
                   Get Started Today
                 </Button>
+                
+                <Button
+                  onClick={openWhatsApp}
+                  variant="outline"
+                  className="px-8 py-4 rounded-lg text-lg font-semibold border-green-500 text-green-400 hover:bg-green-500/10 hover:text-green-300 transition-all duration-300"
+                  data-testid="button-whatsapp"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  WhatsApp
+                </Button>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="mt-8 text-center"
+              >
+                <p className="text-muted-foreground mb-2">Contact us directly:</p>
+                <a 
+                  href="tel:8860881127"
+                  className="text-xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
+                  data-testid="text-phone-number"
+                >
+                  📞 8860881127
+                </a>
               </motion.div>
             </div>
           </div>
